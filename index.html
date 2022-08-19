@@ -3,7 +3,7 @@
 
 <head>
 	<!--projecttitle-->
-	<title>360 View</title>
+	<title>lat1</title>
 	<!--projecttitle-end-->
 	<!--projectdescription-->
 	<meta name="description" content="New 3Sixty Virtual Tour Project">
@@ -162,16 +162,39 @@
 		<div onclick='chclickinfospotperpus1();' id='infospotperpus1'
 			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
 				style='width: 64px; height: 64px;'></div>
+		<div onclick='chclickinfospotperpus2();' id='infospotperpus2'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
 	</div>
-	<div class='customhotspot' id='masjid'></div>
+	<div class='customhotspot' id='masjid'>
+		<div onclick='chclickinfospotmasjid0();' id='infospotmasjid0'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
+	</div>
+	<div class='customhotspot' id='depanperpus'>
+		<div onclick='chclickinfospotdepanperpus0();' id='infospotdepanperpus0'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
+		<div onclick='chclickinfospotdepanperpus1();' id='infospotdepanperpus1'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
+		<div onclick='chclickinfospotdepanperpus2();' id='infospotdepanperpus2'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
+		<div onclick='chclickinfospotdepanperpus3();' id='infospotdepanperpus3'
+			style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/umklogo.png'
+				style='width: 64px; height: 64px;'></div>
+	</div>
+	<div class='customhotspot' id='psi'>
+		<div onclick='chclickinfospotpsi0();' id='infospotpsi0' style='position: fixed; top: 0; left: 0; cursor: pointer;'>
+			<img src='customhotspots/umklogo.png' style='width: 64px; height: 64px;'></div>
+	</div>
 	<!--customhtml-end-->
 
 	<div id="tmp">
-		<center>
-			<div
-				style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;"
-				id="tmpcontent"></div>
-		</center>
+		<div
+			style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;"
+			id="tmpcontent"></div>
 	</div>
 
 
@@ -219,9 +242,11 @@
 		depan.add(infospotdepan0);
 
 		infospotdepan0.addEventListener('click', function () {
+
 			ChangePanorama('perpus');
+
 			ChangePanorama('perpus');
-			document.getElementById("textInfoDown").innerHTML = 'Gedung Perpustakaan';
+
 		});
 
 		var infospotdepan1 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
@@ -231,7 +256,7 @@
 
 		infospotdepan1.addEventListener('click', function () {
 
-			showMedia(1, 'images/5.png');
+			showMedia(1, 'images/gd.png');
 
 		});
 
@@ -254,8 +279,9 @@
 		perpus.add(infospotperpus0);
 
 		infospotperpus0.addEventListener('click', function () {
+
 			ChangePanorama('masjid');
-			document.getElementById("textInfoDown").innerHTML = 'Depan Gedung Perpustakaan2';
+
 		});
 
 		var infospotperpus1 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
@@ -264,8 +290,20 @@
 		perpus.add(infospotperpus1);
 
 		infospotperpus1.addEventListener('click', function () {
+
 			ChangePanorama('depan');
-			document.getElementById("textInfoDown").innerHTML = 'Depan Gedung Perpustakaan1';
+
+		});
+
+		var infospotperpus2 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotperpus2.position.set(4757.50, 106.80, -1520.63);
+		infospotperpus2.visible = false;
+		perpus.add(infospotperpus2);
+
+		infospotperpus2.addEventListener('click', function () {
+
+			ChangePanorama('depanperpus');
+
 		});
 
 		viewer.add(perpus);
@@ -281,9 +319,96 @@
 		});
 
 
+		var infospotmasjid0 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotmasjid0.position.set(-4050.66, 279.77, -2910.19);
+		infospotmasjid0.visible = false;
+		masjid.add(infospotmasjid0);
+
+		infospotmasjid0.addEventListener('click', function () {
+
+			ChangePanorama('perpus');
+
+		});
+
 		viewer.add(masjid);
 
-		$(document).ready(function () { ChangePanorama('depan'); });
+		var depanperpus = new PANOLENS.ImagePanorama("panoramas/depanperpus.jpg");
+		depanperpus.addEventListener('progress', function (e) {
+			$("#loading").show();
+		});
+		depanperpus.addEventListener('load', function (e) {
+			$("#loading").fadeOut();
+		});
+		depanperpus.addEventListener('click', function (e) {
+		});
+
+
+		var infospotdepanperpus0 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotdepanperpus0.position.set(-1960.90, 8.02, 4595.33);
+		infospotdepanperpus0.visible = false;
+		depanperpus.add(infospotdepanperpus0);
+
+		infospotdepanperpus0.addEventListener('click', function () {
+
+			ChangePanorama('perpus');
+
+		});
+
+		var infospotdepanperpus1 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotdepanperpus1.position.set(2888.49, 279.44, -4064.77);
+		infospotdepanperpus1.visible = false;
+		depanperpus.add(infospotdepanperpus1);
+
+		infospotdepanperpus1.addEventListener('click', function () {
+
+		});
+
+		var infospotdepanperpus2 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotdepanperpus2.position.set(4814.95, 418.35, -1251.05);
+		infospotdepanperpus2.visible = false;
+		depanperpus.add(infospotdepanperpus2);
+
+		infospotdepanperpus2.addEventListener('click', function () {
+
+		});
+
+		var infospotdepanperpus3 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotdepanperpus3.position.set(4718.28, 341.56, 1604.09);
+		infospotdepanperpus3.visible = false;
+		depanperpus.add(infospotdepanperpus3);
+
+		infospotdepanperpus3.addEventListener('click', function () {
+
+			ChangePanorama('psi');
+
+		});
+
+		viewer.add(depanperpus);
+
+		var psi = new PANOLENS.ImagePanorama("panoramas/psi.jpg");
+		psi.addEventListener('progress', function (e) {
+			$("#loading").show();
+		});
+		psi.addEventListener('load', function (e) {
+			$("#loading").fadeOut();
+		});
+		psi.addEventListener('click', function (e) {
+		});
+
+		var infospotpsi0 = new PANOLENS.Infospot(512, hotspotIcons[0].data, true);
+		infospotpsi0.position.set(3797.75, -416.98, -3215.27);
+		infospotpsi0.visible = false;
+		psi.add(infospotpsi0);
+
+		infospotpsi0.addEventListener('click', function () {
+
+			ChangePanorama('depanperpus');
+
+		});
+
+		viewer.add(psi);
+
+		$(document).ready(function () { ChangePanorama('depan '); });
 
 
 		/*panoramas-end*/
@@ -300,7 +425,7 @@
 			switch (type) {
 				case 1:
 					//Image
-					$("#tmpcontent").html("<img onclick='hideTemp()' class='mt-5 pt-3' src='" + content + "' style='width: 50%;'>");
+					$("#tmpcontent").html("<center> <img onclick='hideTemp()' class='mt-5 pt-3' src='" + content + "' style='width: 40%;'> </center>");
 					$("#tmp").fadeIn();
 					break;
 				case 2:
@@ -335,13 +460,24 @@
 			if (viewer.panorama == perpus) {
 				ShowMyInfospot(infospotperpus0, 'infospotperpus0');
 				ShowMyInfospot(infospotperpus1, 'infospotperpus1');
+				ShowMyInfospot(infospotperpus2, 'infospotperpus2');
 			}
 
 			if (viewer.panorama == masjid) {
+				ShowMyInfospot(infospotmasjid0, 'infospotmasjid0');
+			}
+
+			if (viewer.panorama == depanperpus) {
+				ShowMyInfospot(infospotdepanperpus0, 'infospotdepanperpus0');
+				ShowMyInfospot(infospotdepanperpus1, 'infospotdepanperpus1');
+				ShowMyInfospot(infospotdepanperpus2, 'infospotdepanperpus2');
+				ShowMyInfospot(infospotdepanperpus3, 'infospotdepanperpus3');
 			}
 			/*viewerupdatecallback-end*/
 
-
+			if (viewer.panorama == psi) {
+				ShowMyInfospot(infospotpsi0, 'infospotpsi0');
+			}
 		});
 
 
@@ -408,22 +544,57 @@
 		function chclickinfospotdepan0() {
 			document.getElementById("textInfoDown").innerHTML = 'Depan Gedung Perpustakaan';
 			ChangePanorama('perpus');
+
 			ChangePanorama('perpus');
+
 		}
 
 		function chclickinfospotdepan1() {
-			showMedia(1, 'images/5.png');
+			showMedia(1, 'images/gd.png');
 
 		}
 
 		function chclickinfospotperpus0() {
-			ChangePanorama('masjid');
 			document.getElementById("textInfoDown").innerHTML = 'Depan Masjid';
+			ChangePanorama('masjid');
+
 		}
 
 		function chclickinfospotperpus1() {
 			document.getElementById("textInfoDown").innerHTML = 'Halaman Depan';
 			ChangePanorama('depan');
+
+		}
+
+		function chclickinfospotperpus2() {
+			document.getElementById("textInfoDown").innerHTML = 'Gedung Perpustakaan';
+			ChangePanorama('depanperpus');
+		}
+
+		function chclickinfospotmasjid0() {
+			document.getElementById("textInfoDown").innerHTML = 'Depan Gedung Perpustakaan';
+			ChangePanorama('perpus');
+		}
+
+		function chclickinfospotdepanperpus0() {
+			document.getElementById("textInfoDown").innerHTML = 'Depan Gedung Perpustakaan';
+			ChangePanorama('perpus');
+		}
+
+		function chclickinfospotdepanperpus1() {
+		}
+
+		function chclickinfospotdepanperpus2() {
+		}
+
+		function chclickinfospotdepanperpus3() {
+			ChangePanorama('psi');
+			document.getElementById("textInfoDown").innerHTML = 'Depan UPT PSI';
+		}
+
+		function chclickinfospotpsi0() {
+			document.getElementById("textInfoDown").innerHTML = 'Gedung Perpustakaan';
+			ChangePanorama('depanperpus');
 		}
 /*customjs-end*/
 	</script>
